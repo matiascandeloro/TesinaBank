@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<div class="form-control">
+    <div class="idproyect">{{proyect_item.id}}</div>
+    <h1>{{proyect_item.title}}</h1>
+    <hr>
+    <h5>Responsable: {{proyect_item.name}} {{proyect_item.lastname}} </h5>
+    <h5>Descripcion: {{proyect_item.description}}</h5>
+    <hr>
+    <div *ngFor="let doc of proyect_item.proyectdoc">
+      <a  href="javascript:void(0)" (click)="download(doc)"><i class="fa-solid fa-file-arrow-down"></i> {{doc.filename}}</a>
+    </div>
+    <hr>
+    <h5>Tags</h5>
+    <div style="float: left;"><i class="fa-solid fa-tags"> > </i> </div>
+    <div *ngFor="let tag of proyect_item.proyecttags" style="float: left;"> 
+      <span class="badge bg-secondary"> {{tag.tagname}} </span>  
+    </div>
+    <br>
+    <hr>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="onBack()"> Volver</button>
+        <button type="button" class="btn btn-success" *ngIf="isStudent" (click)="open(content)">Aplicar</button>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Aplicar Proyecto</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Esta seguro que desea aplicar a este proyecto?</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss('Cancel click')">Cancelar</button>
+       <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Aceptar</button>
+    </div>
+  </ng-template>
+
+<app-modal></app-modal>

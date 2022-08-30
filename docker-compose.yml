@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+    angular: 
+        image: angular-bpt
+        restart: always
+        ports:
+            - "4200:4200" 
+        networks: 
+            - backend    
+    apache:
+        image: apache-bpt
+        restart: always
+        container_name: tesina-apache-app
+        ports:
+            - "8500:8500"
+        volumes:
+            #tesina-data: 
+            - .:/usr/local/apache2/htdocs
+        networks: 
+            - backend
+        #dockerfile: TesinaProjectBank/Dockerfile    
+        #links:
+        #    -tesinabank
+    tesinabank:
+        image: mysql:8.0
+        restart: always
+        ports:
+            - "6432:5432"
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: tesinabank
+            MYSQL_ROOT_USER: root
+            #MYSQL_PASSWORD: 2021+Imasa
+            MYSQL_ROOT_PASSWORD: 2021+Imasa
+            MYSQL_ROOT_HOST: "%"
+        volumes:
+            - ./SQL/01-create.sql:/docker-entrypoint-initdb.d/01.sql
+            - ./SQL/02-insert.sql:/docker-entrypoint-initdb.d/02.sql
+        networks: 
+            backend:
+                aliases:
+                    - database
+    adminer:
+        container_name: tesina-db-webadmin
+        image: adminer
+        restart: always
+        ports:
+                - "8080:8080"
+networks:
+    new:
+        driver: "bridge"
+    backend:
+        driver: "bridge"
+
+volumes:
+    tesina-data:

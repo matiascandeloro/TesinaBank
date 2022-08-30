@@ -1,0 +1,13 @@
+<app-menu></app-menu>
+<div class="loading" *ngIf="loading">
+    <img src="../../assets/images/loader_horizontal.gif" />
+</div>
+<div>
+    <app-proyect-item 
+    *ngFor="let proyect of proyects" 
+    [proyect_item]="proyect"
+    ></app-proyect-item>
+</div>
+<div *ngIf="hasError">
+    <h3>{{msjError}}</h3>
+</div>

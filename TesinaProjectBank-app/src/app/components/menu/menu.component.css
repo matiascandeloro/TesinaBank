@@ -1,0 +1,103 @@
+.menu{
+    margin-left: 1%;
+    width: 98%;
+}
+
+.navbarCustom{
+    display: block;
+    background-color: rgb(20 110 190);
+    border-bottom-right-radius:  5px;
+    border-bottom-left-radius:  5px;
+}
+
+.titulo {
+    font-weight: bold;
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.contenido{
+    display:block;
+    
+}
+
+.alignLeft{
+    display: inline-block;
+    text-align: left;
+    height: 100%;
+}
+
+.alignRight{
+    display: inline;
+    margin-left: auto;
+    text-align: right;
+    height: 100%;
+}
+
+.searchBar{
+    padding-right: 1.5%;
+    display: inline-block;   
+}
+
+.search-Button{
+    border-radius: 5px;
+    padding-left: 3px;
+    border: none;
+}
+
+ul.menuEmergente {
+    padding: 0;
+    position: absolute;
+}
+
+ul.menuEmergente li{
+    text-align: left;
+    left:1px;
+    width: 180px;
+    height: 35px;
+    display: block;
+    background-color: rgb(20 110 190);
+    padding-left: 15px;
+    color: gray;
+    transition: width 4s;
+    border: 1px gray solid;
+}
+ul.menuEmergente li:hover{
+    color: darkgray;
+}
+
+ul.menuEmergente a,span{
+    height: 100%;
+    display: inline-block;
+    margin: 5px;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    text-decoration: none;
+    color: lightgray;
+}
+
+ul.menuEmergente a:hover,span:hover {
+
+    color:  lightgray;
+}
+
+.botonMenu{
+    border: 1px darkgray solid;
+    margin-left: 5px;
+    border-radius: 3px;
+    background-color: rgb(20 110 190);
+}
+
+.fa-magnifying-glass {
+    color: lightgray;
+}
+.fa-tags{
+    color: lightgray;
+}
+.fa-bars{
+    color: lightgray;
+}
+

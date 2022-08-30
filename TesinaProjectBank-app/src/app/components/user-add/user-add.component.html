@@ -1,0 +1,140 @@
+<app-menu></app-menu>
+<div class="container d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Iniciar session</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/register">Crear Cuenta</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body"></div>
+        <form action="" class="form-control"  (ngSubmit)="onSubmit()">
+            <h2> Registro de Nuevo Usuario </h2>
+            <div class="idHide">
+                <label  for="">id:</label>
+                <input class="form-control" type="text" name="id" [(ngModel)]="user.id">
+            </div>
+            <div class="form-group">
+                <label for="username">Nombre de Usuario</label>
+                <input class="form-control" type="text" name="username" (change)="onChange()" [(ngModel)]="user.username"
+                required 
+                #username="ngModel"
+                title="Indique el nombre de usuario."
+                placeholder="Nombre de usuario"
+                autofocus >
+                <div class="help-block" > 
+                    <div *ngIf="username.invalid  && username.touched">
+                        <span class="text-danger">El Nombre de usuario es requerido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input class="form-control" type="password" name="password" [(ngModel)]="user.password"
+                required 
+                #password="ngModel"
+                title="Ingrese su contraseña."
+                placeholder="Contraseña.">
+                <div class="help-block" > 
+                    <div *ngIf="password.invalid  && password.touched">
+                        <span class="text-danger">La contraseña es requerida</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Confirmacion Password</label>
+                <input class="form-control" type="password" name="passconf" [(ngModel)]="passConf"
+                required 
+                #passconf="ngModel"
+                title="Reingrese nuevamente su contraseña."
+                placeholder="Reingrese su Contraseña.">
+                <div class="help-block" > 
+                    <div *ngIf="passconf.invalid  && passconf.touched">
+                        <span class="text-danger">La confirmacion de contraseña es requerida</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input class="form-control" type="text" name="name" [(ngModel)]="user.name"
+                required 
+                #name="ngModel"
+                title="Indique su nombre."
+                placeholder="Nombre">
+                <div class="help-block" > 
+                    <div *ngIf="name.invalid  && name.touched">
+                        <span class="text-danger">El Nombre es requerido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Apellido</label>
+                <input class="form-control" type="email" name="lastname" [(ngModel)]="user.lastname"
+                required 
+                #lastname="ngModel"
+                title="Indique su Apellido."
+                placeholder="Apellido">
+                <div class="help-block" > 
+                    <div *ngIf="lastname.invalid  && lastname.touched">
+                        <span class="text-danger">El Apellido es requerido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" [class.has.error]="mail.invalid && mail.touched">
+                <label for="" class="control-label">Mail contacto</label>
+                <input type="email" 
+                name="mail" 
+                placeholder="ejemplo@mail.com"
+                [(ngModel)]="user.mail"
+                class="form-control" 
+                [ngModelOptions]="{updateOn:'blur'}"
+                #mail="ngModel"
+                required 
+                autocomplete="off"
+                title="Proporcione solo una dirección de correo electrónico valida."
+                >
+                <div class="help-block" > 
+                    <div *ngIf="mail.invalid  && mail.touched; else other_content">
+                        <span class="text-danger">El mail es requerido</span>
+                    </div>
+                    <ng-template #other_content>
+                        <div #other_content *ngIf="!isValidEmail(user.mail)  && mail.touched">
+                            <span class="text-danger">El mail no es valido</span>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <hr>
+            <div *ngIf="isError" class="alert alert-danger" >
+                <h5>{{errorMsj}}</h5>
+            </div>
+            <div >
+                
+                <input type="submit" class="btn btn-success"  value="Guardar">
+            </div>
+           
+            
+        </form>
+    </div>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Usuario</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Save click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Se ha generado el usuario satisfactoriamente.</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+       <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Aceptar</button>
+    </div>
+  </ng-template>
+<app-modal ></app-modal>

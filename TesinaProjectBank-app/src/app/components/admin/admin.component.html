@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<div class="form-container">
+    <h2>Configuración</h2>
+    <hr>
+    <div class="d-flex">
+        <h4 class="p-2 flex-grow-1">Dias visibles de propuesta</h4>
+        <input class="p-2 flexfill text-end" type="text" [(ngModel)]="adminConfig.viewTimeProposal" [ngModelOptions]="{standalone: true}" required>
+    </div>    
+    <div class="d-flex">
+        <h4 class="p-2 flex-grow-1">Dias de propuesta antes de Eliminar</h4>
+        <input class="p-2 flexfill text-end" type="text" [(ngModel)]="adminConfig.deleteTimeProposal" [ngModelOptions]="{standalone: true}" required>
+    </div>    
+    <div class="d-flex ">
+        <h4 class="p-2 flex-grow-1">Cantidad maxima de postulacion de alumnos a propuestas</h4>
+        <input class="p-2 flexfill text-end" type="text" [(ngModel)]="adminConfig.maxAmoungApplicants" [ngModelOptions]="{standalone: true}" required>
+    </div>    
+    <div>
+        <hr>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success" (click)="open(content)">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Actualizar Configuración</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Esta seguro que quiere guardar los cambios?</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss('Cancel click')">Cancelar</button>
+       <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Aceptar</button>
+    </div>
+  </ng-template>

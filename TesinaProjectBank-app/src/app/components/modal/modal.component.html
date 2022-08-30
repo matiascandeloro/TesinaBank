@@ -1,0 +1,17 @@
+<div class="modal" [ngStyle]="{'display': display}">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{titulo}}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">{{descripcion}}</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <!--<button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>-->
+        <button type="button" class="btn btn-success" (click)="closeModal()">Aceptar</button>
+    </div>
+</div>

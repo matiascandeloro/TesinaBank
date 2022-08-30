@@ -1,0 +1,118 @@
+<app-menu></app-menu>
+
+    <form action="" class="form-container"  (ngSubmit)="onSubmit()">
+        <h2> Registrar Proyecto de Tesina</h2>
+        <div class="idHide">
+            <label  for="">id:</label>
+            <input class="form-control" type="text" name="id" [(ngModel)]="itemproyect.id">
+        </div>
+        <div class="form-group">
+            <label for="">Titulo</label>
+            <input class="form-control" type="text" name="title" [(ngModel)]="itemproyect.title"
+            required 
+            #title="ngModel"
+            title="Indique el Titulo del Proyecto de tesina."
+            placeholder="Titulo del Proyecto de tesina"
+            autofocus>
+            <div class="help-block" > 
+                <div *ngIf="title.invalid  && title.touched">
+                    <span class="text-danger">El Titulo es requerido</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Mail de contacto</label>
+            <input class="form-control" type="email" name="contact_mail" [(ngModel)]="itemproyect.contact_mail"
+            placeholder="Ejemplo@mail.com"
+            class="form-control" 
+            [ngModelOptions]="{updateOn:'blur'}"
+            #mail="ngModel"
+            required 
+            autocomplete="off"
+            title="Proporcione solo una dirección de correo electrónico valida."  >
+            <div class="help-block" > 
+                <div *ngIf="mail.invalid  && mail.touched; else other_content">
+                    <span class="text-danger">El mail es requerido</span>
+                </div>
+                <ng-template #other_content>
+                    <div #other_content *ngIf="!isValidEmail(itemproyect.contact_mail)  && mail.touched">
+                        <span class="text-danger">El Mail no es valido</span>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Nombre del Responsable</label>
+            <input class="form-control" type="text" name="name" [(ngModel)]="itemproyect.name"
+            required 
+            #name="ngModel"
+            title="Indique el nombre del responsable del Proyecto."
+            placeholder="Nombre del responsable del Proyecto de Tesina">
+            <div class="help-block" > 
+                <div *ngIf="name.invalid  && name.touched">
+                    <span class="text-danger">El Nombre es requerido</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Apellido del Responsable</label>
+            <input class="form-control" type="text" name="lastname" [(ngModel)]="itemproyect.lastname"
+            required 
+            #lastname="ngModel"
+            title="Indique el apellido del responsable del Proyecto."
+            placeholder="Apellido del responsable del Proyecto de Tesina">
+            <div class="help-block" > 
+                <div *ngIf="lastname.invalid  && lastname.touched">
+                    <span class="text-danger">El Apellido es requerido</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Descripcion</label>
+            <textarea class="form-control" name="description" [(ngModel)]="itemproyect.description" rows="5"
+            required 
+            #descripcion="ngModel"
+            title="Indique una descripcion para el Proyecto de Tesina."
+            placeholder="Descripcion de el Proyecto de Tesina"
+            ></textarea>
+            <div class="help-block" > 
+                <div *ngIf="descripcion.invalid  && descripcion.touched">
+                    <span class="text-danger">La Descripcion es requerida</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div *ngFor="let doc of itemproyect.proyectdoc">
+            <a  href="javascript:void(0)" (click)="download(doc)"><i class="fa-solid fa-file-arrow-down"></i> {{doc.filename}}</a>  
+            &nbsp;
+            <a href="javascript:void(0)" (click)="deleteDoc(doc)"> <i  class="fa-solid fa-xmark" ></i></a>
+        </div>
+        <div>
+            <input type="file" class="form-control" multiple id="exampleFormControlFile1" (change)="onFileSelected($event)" #fileUpload>
+        </div>
+        <hr>
+        <div class="tag">
+            <h5>Tags </h5>
+            <div class="showTag"><i class="fa-solid fa-tags"> > </i> </div>
+            <div *ngFor="let tag of  itemproyect.proyecttags" > 
+            <span class="showTag"> {{tag.tagname}} <input type="button" style="background-color: grey; border: 0;" value="X" (click)="delete(tag.tagname)"></span>  
+        </div>
+    </div>
+        <!-- ver datalist para esto -->
+        <div class="clear">
+        <div class="tag">
+            <input type="text" class="inputTag" name="tagCheck"   (ngModelChange)="tagCheck=$event" [ngModel]="tagCheck" (ngModelChange)="checkTag()" autocomplete="off">
+            <button type="button" class="buttonTag" (click)="addTag(tagCheck)">Agregar</button>
+        </div>
+    </div>
+        <ul class="list-group">
+            <li *ngFor="let l of tagfilter" type="button" class="list-group-item list-group-item-action" (click)="onClickTag(l.tagname)" >{{l.tagname}}</li>
+        </ul>
+        <div class="modal-footer">
+            <div *ngIf="isError" class="alert alert-danger" >
+                <h5>{{errorMsj}}</h5>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="onBack()"> Volver</button>
+            <input type="submit" class="btn btn-success"  value={{guardar}}>
+        </div>
+    </form>

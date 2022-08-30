@@ -1,0 +1,17 @@
+.idHide{
+    display: none;
+}
+
+.leftAlign{
+    justify-self: flex-start;
+}
+.rightAlign{
+    justify-self: flex-end;
+}
+
+.form-container{
+    margin-left: 1%;
+    width: 98%;
+    border: 1px darkgray solid;
+    padding: 5px;
+}

@@ -1,0 +1,13 @@
+FROM maven
+
+WORKDIR /home/app
+
+COPY  . .
+
+EXPOSE 8500
+
+RUN mvn clean install
+
+WORKDIR /home/app/target
+
+CMD ["java","-jar","TesinaProjectBank.jar"]

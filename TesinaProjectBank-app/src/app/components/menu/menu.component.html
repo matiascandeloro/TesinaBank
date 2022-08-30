@@ -1,0 +1,50 @@
+<div class="menu">
+<nav class="navbarCustom">
+  <div class="contenido">
+    <div class="alignLeft" *ngIf="isLogged">
+      <button  class="botonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+        <i class="fa-solid fa-bars" ></i>
+      </button>
+      <div *ngIf="isCollapsed">
+        <ul class="menuEmergente">
+          <li>
+            <a routerLink="/home" routerLinkActive="active" *ngIf="isLogged"><i class="fa-solid fa-table-list"></i> Lista</a>
+          </li>
+          <li>
+            <a routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin"><i class="fa-solid fa-gear"></i> Admin</a>
+          </li>
+          <li>
+            <a  routerLink="/apliedProyect" routerLinkActive="active" *ngIf="isStudent"><i class="fa-solid fa-list"></i> Aplicaciones</a>
+          </li>
+          <li>
+            <a  routerLink="/addproyect"  routerLinkActive="active" *ngIf="isOfferer"><i class="fa-solid fa-sheet-plastic"></i> Agregar Propuesta</a>
+          </li>
+          <li>
+            <a routerLink="/users"  routerLinkActive="active" *ngIf="isAdmin"><i class="fa-solid fa-user-group"></i> Usuarios</a>
+          </li>
+          <li>
+            <a routerLink="/logout" routerLinkActive="active" *ngIf="isLogged"><i class="fa-solid fa-right-from-bracket" ></i> Cerrar Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="alignLeft">
+      <span class="titulo">Banco de Tesinas</span>
+    </div>
+
+    <div class="alignRight">
+      <form class="searchBar" *ngIf="isLogged" >
+        <input class="search-Button" type="search" placeholder="Search" name="search"  [(ngModel)]="searchValue" aria-label="Search" autocomplete="off"/>
+        <button (click)="filterTag()" class="botonMenu"><i class="fa-solid fa-tags" >></i></button>
+        <button (click)="onSubmit()"  class="botonMenu"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <ul class="menuEmergente" *ngIf="showFilter">
+            <li *ngFor="let tag of tagAvailable" (click)="addTagToSearch(tag.idtags)"> 
+              <span > {{tag.tagname}}  <i class="fa-solid fa-check" *ngIf="checkTag(tag.idtags)"></i></span>
+            </li>
+            <li (click)="deselectAll()"><span> Deseleccionar Todos </span></li>
+          </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>

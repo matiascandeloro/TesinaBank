@@ -1,0 +1,42 @@
+<div class="form-container">
+    <div class="container1">
+        <div class="container2">
+            <div class="idproyect">
+                {{proyect_item.id}}
+            </div>
+            <div class="title">
+            <strong> {{proyect_item.title}}</strong>
+            </div>
+            <div class="button" >
+              <i class="fa-solid fa-trash-can" (click)="open(content,proyect_item)" *ngIf="isAdmin"></i>
+            </div>
+            <div class="button" >
+                <i class="fa-solid fa-pen" (click)="onEdit(proyect_item)" *ngIf="isOfferer "></i>
+            </div>
+            <div class="button" >
+              <i class="fa-solid fa-eye" (click)="onOpen(proyect_item)"></i>
+            </div>
+        </div>
+        <div class="description" >
+            {{proyect_item.description}} 
+        </div> 
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Eliminar Proyecto</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Esta seguro que desea Eliminar este proyecto?</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss('Cancel click')">Cancelar</button>
+       <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Aceptar</button>
+    </div>
+  </ng-template>

@@ -1,0 +1,102 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+/angular/TesinaProjectBank-app/.idea/
+/angular/TesinaProjectBank-app/.project
+/angular/TesinaProjectBank-app/.classpath
+/angular/TesinaProjectBank-app/.c9/
+*.launch
+/angular/TesinaProjectBank-app/.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+/angular/TesinaProjectBank-app/.vscode/*
+!/angular/TesinaProjectBank-app/.vscode/settings.json
+!/angular/TesinaProjectBank-app/.vscode/tasks.json
+!/angular/TesinaProjectBank-app/.vscode/launch.json
+!/angular/TesinaProjectBank-app/.vscode/extensions.json
+/angular/TesinaProjectBank-app/.history/*
+
+# Miscellaneous
+/angular/TesinaProjectBank-app//.angular/cache
+/angular/TesinaProjectBank-app/.sass-cache/
+/angular/TesinaProjectBank-app//connect.lock
+/angular/TesinaProjectBank-app//coverage
+/angular/TesinaProjectBank-app//libpeerconnection.log
+/angular/TesinaProjectBank-app/testem.log
+/angular/TesinaProjectBank-app//typings
+
+# System files
+/angular/TesinaProjectBank-app/.DS_Store
+/angular/TesinaProjectBank-app/Thumbs.db
+/tesina todo.txt.bak
