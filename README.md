@@ -19,6 +19,6 @@ Una vez descargado el proyecto, se requiere abrir una consola con permisos de ad
 ###### Comando para levantar el entorno de produccion
 **docker compose up -d**
 
-Luego de Terminar de crear el entorno, se puede conectar para empezar a utilizar la aplicacion en http:\\localhost:4200\ desde el mismo o la ip de la maquina que esta haciendo de host, desde cualquier navegador.
+Luego de Terminar de crear el entorno, se puede conectar para empezar a utilizar la aplicacion en http:\\\\localhost:4200\ desde el mismo o la ip de la maquina que esta haciendo de host, desde cualquier navegador.
 
 Las credenciales por defecto son admin para el usuario y la contraseña.
