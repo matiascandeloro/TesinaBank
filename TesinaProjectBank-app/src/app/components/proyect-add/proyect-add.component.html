@@ -93,7 +93,7 @@
         <hr>
         <div class="tag">
             <h5>Tags </h5>
-            <div class="showTag"><i class="fa-solid fa-tags"> > </i> </div>
+            <div><i class="fa-solid fa-tags"> > </i> </div>
             <div *ngFor="let tag of  itemproyect.proyecttags" > 
             <span class="showTag"> {{tag.tagname}} <input type="button" style="background-color: grey; border: 0;" value="X" (click)="delete(tag.tagname)"></span>  
         </div>

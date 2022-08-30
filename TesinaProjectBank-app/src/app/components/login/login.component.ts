@@ -13,8 +13,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginComponent implements OnInit {
   user = {
-    username:'admin',
-    password:'admin'
+    username:'',
+    password:''
   }
   isLogged=false;
   isLoginFail=false;

@@ -36,8 +36,6 @@ form input[type=text]{
 .showTag{
     display: inline-block;
     margin-left: 10px;
-}
-.showTag div,span{ 
     border-radius: 10px;
     background-color: gray;
     border: 0px;

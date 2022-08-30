@@ -13,14 +13,14 @@ import io.jsonwebtoken.SignatureException;
 
 @ControllerAdvice
 public class GlobalExceptHandler {
-
+/*
 	@ExceptionHandler(MultipartException.class)
 	public ResponseEntity<?> handleMultipart(MultipartException e, RedirectAttributes attributes) {
 		attributes.addFlashAttribute("message", e.getCause().getMessage());
 		System.out.println( e.getCause().getMessage());
 		
 		return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+	}*/
 	/*@ExceptionHandler(SignatureException.class)
 	public String handleBadRequest(SignatureException e,RedirectAttributes attributes) {
 		attributes.addFlashAttribute("message", e.getCause().getMessage());
