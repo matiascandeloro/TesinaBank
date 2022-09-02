@@ -58,8 +58,27 @@ export class ProyectViewerComponent implements OnInit {
   download(doc: ProyectDoc){
 
     this.proyectService.download(doc.proyectid+"_"+doc.filename).subscribe(
-      blob => saveAs(blob, doc.filename) );
+      blob =>{
+        if(this.right(doc.filename,3)=="pdf"){
+          var file = new Blob([blob], {type: 'application/pdf'});
+          var fileURL = URL.createObjectURL(file);
+          window.open(fileURL);
+        }else if(this.right(doc.filename,3)=="bmp" || this.right(doc.filename,3)=="jpg" ){
+          var file = new Blob([blob], {type: 'image/jpeg'});
+          var fileURL = URL.createObjectURL(file);
+          window.open(fileURL);
+        }else{
+          saveAs(blob, doc.filename);
+        }
+      } 
+      
+      );
   }
+  right(str:string,cant:number):string{
+    let size=str.length;
+    return str.substring(size-cant,size);
+  }
+
 
   openModal(data:string){
     this.modalCustomService.titulo.emit("Aviso");
