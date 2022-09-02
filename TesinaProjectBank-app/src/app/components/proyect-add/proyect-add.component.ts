@@ -67,8 +67,16 @@ export class ProyectAddComponent implements OnInit {
           this.formDataTag.append("tagname",JSON.parse(JSON.stringify(element.tagname)));
           this.http.post(environment.URL+"/addTagToSave",this.formDataTag).subscribe();          
         }); 
-        this.http.post(environment.URL+"/uploadFile",this.formData).subscribe();
-        this.router.navigate(['/home']).then(()=>{window.location.reload();});
+        this.http.post(environment.URL+"/uploadFile",this.formData).subscribe(()=>{
+          this.router.navigate(['/home']).then(()=>{
+            window.location.reload();
+          });
+        },err=>{
+          this.router.navigate(['/home']).then(()=>{
+            window.location.reload();
+          });
+        })
+        ;
       });
     }
     
