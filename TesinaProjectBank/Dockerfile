@@ -14,6 +14,8 @@ RUN mkdir spring_file
 
 WORKDIR /root/spring_file
 
+COPY  ./Manual_de_Usuario.pdf .
+
 RUN mkdir tessdata
 
 WORKDIR /root/tessdata

@@ -115,4 +115,13 @@ export class MenuComponent implements OnInit {
   deselectAll(){
     this.tagToSearch=[];
   }
+  help(){
+    let filename="Manual_de_Usuario.pdf";
+    this.proyectService.download(filename).subscribe(
+      blob => {
+      var file = new Blob([blob], {type: 'application/pdf'});
+      var fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+      });
+  }
 }

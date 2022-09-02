@@ -22,6 +22,9 @@
           <li>
             <a routerLink="/users"  routerLinkActive="active" *ngIf="isAdmin"><i class="fa-solid fa-user-group"></i> Usuarios</a>
           </li>
+          <li *ngIf="isLogged">
+            <a  routerLinkActive="active" (click)="help()"><i class="fa-solid fa-circle-question"></i> Manual de Usuario</a>
+          </li>
           <li>
             <a routerLink="/logout" routerLinkActive="active" *ngIf="isLogged"><i class="fa-solid fa-right-from-bracket" ></i> Cerrar Session</a>
           </li>
